@@ -70,3 +70,5 @@ In this project the following results were consistently produced:
 | vy   | 0.4404      |
 
 where `x`,`y` are coordinates of predicted object in Cartesian coordinate system, and `vx` and `Vy` are the objects respective speeds.
+The image containing data can be seen below:
+![EKF in simulation](images/simulator.png)
