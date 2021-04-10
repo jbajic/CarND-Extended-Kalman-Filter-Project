@@ -104,11 +104,11 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack)
       double phi = measurement_pack.raw_measurements_[1];
       double rho_dot = measurement_pack.raw_measurements_[2];
       double x = rho * cos(phi);
+      double y = rho * sin(phi);
       if (x < 0.0001)
       {
         x = 0.0001;
       }
-      double y = rho * sin(phi);
       if (y < 0.0001)
       {
         y = 0.0001;
@@ -171,7 +171,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack)
   {
     // TODO: Radar updates
     ekf_.H_ = tools.CalculateJacobian(ekf_.x_);
-  	ekf_.R_ = R_radar_;
+    ekf_.R_ = R_radar_;
     ekf_.UpdateEKF(measurement_pack.raw_measurements_);
   }
   else
